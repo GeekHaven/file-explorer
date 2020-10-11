@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^10.1.3"
+  },
+  "dependencies": {
+    "os": "^0.1.1"
   }
 }
