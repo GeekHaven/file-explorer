@@ -2,10 +2,32 @@
 
     <head>
         <title> File Explorer </title>
+        <link rel="stylesheet" href="style.css">
     </head>
     
     <body>
-        Welcome to File Explorer
+        <header id="titlebar">
+            <div id="drag-region">
+              <div id="window-title">
+                <img src="images/logo.png" alt="" class="logo">
+                <span id="head-title"> File Explorer </span>
+              </div>
+      
+              <div id="window-controls">
+      
+                <div class="button" id="min-button">
+                  <img class="icon" srcset="icons/min-w-10.png 1x, icons/min-w-12.png 1.25x, icons/min-w-15.png 1.5x, icons/min-w-15.png 1.75x, icons/min-w-20.png 2x, icons/min-w-20.png 2.25x, icons/min-w-24.png 2.5x, icons/min-w-30.png 3x, icons/min-w-30.png 3.5x" draggable="false" />
+                </div>
+                <div class="button" id="close-button">
+                  <img class="icon" srcset="icons/close-w-10.png 1x, icons/close-w-12.png 1.25x, icons/close-w-15.png 1.5x, icons/close-w-15.png 1.75x, icons/close-w-20.png 2x, icons/close-w-20.png 2.25x, icons/close-w-24.png 2.5x, icons/close-w-30.png 3x, icons/close-w-30.png 3.5x" draggable="false" />
+                </div>
+              </div>
+            </div>
+          </header>
+
+        <div id="main">
+            <h2>Welcome to file Explorer!</h2>
+        </div>
     </body>
     
     <script src="renderer.js"></script>
