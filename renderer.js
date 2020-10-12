@@ -10,10 +10,10 @@ const printdirectory =()=>{
 
 const getFilesandFolder = ()=>{
     let home = printdirectory();
-    homenames = fs.readdirSync(home);
-    homenames.forEach(file => { 
-        console.log(file); 
-    }); 
+    fs.readdirSync(home, { withFileTypes: true }).map((file)=>{
+        console.log({name:file.name, isDir: !file.isFile()})
+    })    
+
 }
 
 getFilesandFolder();
