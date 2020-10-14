@@ -12,7 +12,12 @@ const getFilesandFolder = ()=>{
     let home = printdirectory();
     homenames = fs.readdirSync(home);
     homenames.forEach(file => { 
-        console.log(file); 
+        console.log(file);
+        
+        var node = document.createElement('LI');
+        var textnode = document.createTextNode(file);
+        node.appendChild(textnode);
+        document.getElementById("myList").appendChild(node); 
     }); 
 }
 
