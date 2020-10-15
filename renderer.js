@@ -1,6 +1,28 @@
 let os = require('os');
 const fs = require("fs"); 
 const path = require('path');
+const remote = require('electron').remote;
+const win = remote.getCurrentWindow();
+
+document.onreadystatechange = (event) => {
+    if (document.readyState == "complete") {
+        handleWindowControls();
+    }
+};
+
+window.onbeforeunload = (event) => {
+    win.removeAllListeners();
+}
+
+function handleWindowControls() {
+    document.getElementById('min-button').addEventListener("click", event => {
+        win.minimize();
+    });
+
+    document.getElementById('close-button').addEventListener("click", event => {
+        win.close();
+    });
+}
 
 const printdirectory =()=>{
     dir_home = os.homedir();
