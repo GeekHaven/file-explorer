@@ -1,5 +1,5 @@
 let os = require('os');
-const fs = require("fs"); 
+const fs = require("fs");
 const path = require('path');
 const remote = require('electron').remote;
 const win = remote.getCurrentWindow();
@@ -24,23 +24,37 @@ function handleWindowControls() {
     });
 }
 
-const printdirectory =()=>{
+const printdirectory = () => {
     dir_home = os.homedir();
     console.log(dir_home);
     return dir_home;
-} 
+}
 
-const getFilesandFolder = ()=>{
+const getFilesandFolder = () => {
     let home = printdirectory();
     homenames = fs.readdirSync(home);
-    homenames.forEach(file => { 
-        console.log(file);
-        
-        var node = document.createElement('LI');
-        var textnode = document.createTextNode(file);
-        node.appendChild(textnode);
-        document.getElementById("myList").appendChild(node); 
-    }); 
+    homenames.forEach(file => {
+
+        var filePath = path.join(home, file);
+        var stat = fs.statSync(filePath);
+        if (stat.isFile()) {
+            console.log('The is a File' + file);
+            var node = document.createElement('LI');
+            var textnode = document.createTextNode(file);
+            node.appendChild(textnode);
+            document.getElementById("myList").appendChild(node);
+        } else if (stat.isDirectory()) {
+            console.log('The is a Directory' + file);
+            var node = document.createElement('LI');
+            var textnode = document.createTextNode(file);
+            node.appendChild(textnode);
+            document.getElementById("myList").appendChild(node);
+        }
+
+
+
+    });
 }
+
 
 getFilesandFolder();
