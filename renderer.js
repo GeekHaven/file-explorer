@@ -24,7 +24,11 @@ function handleWindowControls() {
   });
 
   document.getElementById("devbtn").addEventListener("click", (e) => {
-    win.webContents.openDevTools();
+    if (!win.webContents.isDevToolsOpened()) {
+      win.webContents.openDevTools();
+    } else {
+      win.webContents.closeDevTools();
+    }
   });
 }
 

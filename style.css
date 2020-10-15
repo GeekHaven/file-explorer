@@ -54,9 +54,6 @@ h2 {
   background-color: #f1707a;
   color: whitesmoke;
 }
-#dev {
-  margin-right: 30px;
-}
 
 #main {
   height: calc(100% - 32px);
@@ -101,6 +98,7 @@ h2 {
 #window-controls {
   display: grid;
   grid-template-columns: repeat(3, 46px);
+  grid-column-gap: 20px;
   position: absolute;
   top: 0;
   right: 0;
