@@ -48,6 +48,16 @@ h2 {
   padding: 0;
 }
 
+/* dev button */
+#devbtn {
+  padding: 5px;
+  background-color: #f1707a;
+  color: whitesmoke;
+}
+#dev {
+  margin-right: 30px;
+}
+
 #main {
   height: calc(100% - 32px);
   margin-top: 32px;
