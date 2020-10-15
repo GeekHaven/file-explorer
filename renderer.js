@@ -33,36 +33,30 @@ const printdirectory = () => {
 const getFilesandFolder = () => {
     let home = printdirectory();
     homenames = fs.readdirSync(home);
+
+
     homenames.forEach(file => {
 
+        var filePath = path.join(home, file);
+        var stat = fs.statSync(filePath);
+        if (stat.isFile()) {
+            console.log('The is a File' + file);
+            var node = document.createElement('LI');
+            var textnode = document.createTextNode(file);
+            node.appendChild(textnode);
+            document.getElementById("myList").appendChild(node);
+        } else if (stat.isDirectory()) {
+            console.log('The is a Directory' + file);
+            var node = document.createElement('LI');
+            var textnode = document.createTextNode(file);
+            node.appendChild(textnode);
+            document.getElementById("myList").appendChild(node);
+        }
 
-        //information about the file
-        fs.stat(file, (error, stats) => {
-            if (error) {
-                console.log(error);
-            } else {
-                // Using methods of the Stats object 
-                if (stats.isFile()) {
-                    console.log("The is a File" + file);
-                    var node = document.createElement('LI');
-                    var textnode = document.createTextNode(file);
-                    node.appendChild(textnode);
-                    document.getElementById("myList").appendChild(node);
-
-                }
-                if (stats.isDirectory()) {
-                    console.log("The is a Directory" + file);
-                    var node = document.createElement('LI');
-                    var textnode = document.createTextNode(file);
-                    node.appendChild(textnode);
-                    document.getElementById("myList").appendChild(node);
-
-                }
-            }
-        });
 
 
     });
+
 }
 
 
