@@ -33,8 +33,6 @@ const printdirectory = () => {
 const getFilesandFolder = () => {
     let home = printdirectory();
     homenames = fs.readdirSync(home);
-
-
     homenames.forEach(file => {
 
         var filePath = path.join(home, file);
@@ -56,7 +54,6 @@ const getFilesandFolder = () => {
 
 
     });
-
 }
 
 

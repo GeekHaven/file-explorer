@@ -9,7 +9,8 @@ app.on('ready', () => {
     console.log("app started");
     mainWindow = new BrowserWindow({
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            enableRemoteModule: true
         }
     });
     mainWindow.webContents.loadFile('index.html');
