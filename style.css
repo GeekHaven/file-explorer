@@ -33,6 +33,13 @@ h2 {
   color: #000;
 }
 
+/* dev button */
+#devbtn {
+  padding: 5px;
+  background-color: #f1707a;
+  color: whitesmoke;
+}
+
 #titlebar {
   display: block;
   position: fixed;
@@ -93,6 +100,7 @@ h2 {
   grid-template-columns: repeat(3, 46px);
   position: absolute;
   top: 0;
+  grid-column-gap: 20px;
   right: 0;
   height: 100%;
 }
