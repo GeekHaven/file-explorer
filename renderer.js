@@ -3,6 +3,9 @@ const fs = require("fs");
 const path = require("path");
 const remote = require("electron").remote;
 const win = remote.getCurrentWindow();
+const { shell } = require('electron')
+
+var node = document.getElementById("myList");
 
 document.onreadystatechange = (event) => {
   if (document.readyState == "complete") {
@@ -38,26 +41,36 @@ const printdirectory = () => {
   return dir_home;
 };
 
-const getFilesandFolder = () => {
-  let home = printdirectory();
-  homenames = fs.readdirSync(home);
+const getFilesandFolder = (folderPath) => {
+    var homenames = fs.readdirSync(folderPath);
+      node.innerHTML='';
+
   homenames.forEach((file) => {
-    var filePath = path.join(home, file);
+    var filePath = path.join(folderPath, file);
     var stat = fs.statSync(filePath);
     if (stat.isFile()) {
       console.log("The is a File" + file);
-      var node = document.createElement("LI");
+      var toAddnode = document.createElement("LI");
+      toAddnode.onclick = function() {openFile(filePath)};
       var textnode = document.createTextNode(file);
-      node.appendChild(textnode);
-      document.getElementById("myList").appendChild(node);
+      toAddnode.appendChild(textnode);
+      
+      node.appendChild(toAddnode);
     } else if (stat.isDirectory()) {
+
       console.log("The is a Directory" + file);
-      var node = document.createElement("LI");
+      var toAddnode = document.createElement("LI");
+      toAddnode.onclick=function() {getFilesandFolder(filePath)};
       var textnode = document.createTextNode(file);
-      node.appendChild(textnode);
-      document.getElementById("myList").appendChild(node);
+      toAddnode.appendChild(textnode);
+      node.appendChild(toAddnode);
+
     }
   });
 };
 
-getFilesandFolder();
+function openFile(filePath){
+  shell.openPath(filePath);
+}
+
+getFilesandFolder(printdirectory());
