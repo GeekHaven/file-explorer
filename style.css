@@ -172,4 +172,7 @@ h2 {
 }
 #myList li {
   color: #000;
+  font-size: 120%;
+  padding: 1px;
+  border:solid 1px;
 }

@@ -3,6 +3,8 @@ const fs = require("fs");
 const path = require("path");
 const remote = require("electron").remote;
 const win = remote.getCurrentWindow();
+const { shell } = require('electron')
+
 
 document.onreadystatechange = (event) => {
   if (document.readyState == "complete") {
@@ -47,6 +49,7 @@ const getFilesandFolder = () => {
     if (stat.isFile()) {
       console.log("The is a File" + file);
       var node = document.createElement("LI");
+      node.onclick = function() {openFile(filePath)};
       var textnode = document.createTextNode(file);
       node.appendChild(textnode);
       document.getElementById("myList").appendChild(node);
@@ -61,3 +64,7 @@ const getFilesandFolder = () => {
 };
 
 getFilesandFolder();
+
+function openFile(filePath){
+  shell.openPath(filePath);
+}
