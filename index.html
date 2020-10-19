@@ -54,21 +54,20 @@
       </div>
     </header>
 
-    <div id="main">
-      <div class="change">
-        <div class="container">
-          <a style="text-decoration: none;color: black;" href="">❮  </a>
-          <a style="text-decoration: none;color: black;" href=""> ❯</a>
-        </div>
-        <div class="container">
-          <input style="text-decoration: none;color: black;border:2px solid rgb(20, 20, 20);" type="text"
-            placeholder="current directory">
-        </div>
-        <div class="container">
-          <a style="text-decoration: none;float: right;color: black;border:2px solid rgb(12, 12, 12);" href="">GO</a>
-        </div>
+    <div class="change">
+      <div class="container">
+        <a id="goback" href="">❮  </a>
+        <a id="goforward" href=""> ❯</a>
       </div>
+      <div class="container">
+        <input id="directory" type="text" placeholder="current directory">
+      </div>
+      <div class="container">
+        <a style="float: right;text-decoration: none ;"  type="go" href="">GO</a>
+      </div>
+    </div>
 
+    <div id="main">
       <h2>Welcome to file Explorer!</h2>
       <div class="lists">
         <h2>Files and Folders</h2>

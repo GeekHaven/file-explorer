@@ -57,7 +57,7 @@ h2 {
 
 #main {
   height: calc(100% - 32px);
-  margin-top: 32px;
+  margin-top: 10px;
   padding: 20px;
   overflow-y: auto;
 }
@@ -179,29 +179,56 @@ h2 {
 .change
 {
   font-size: 1.3rem;
-
   /* margin: 0mm auto; */
   display: flex;
   
 }
-.change input[type=text]
+/* .change input[type=text]
 {
   
-    padding: 6px;
-    margin-top: 8px;
-    margin-right: 16px;
-    font-size: 18px;
-    
-    border-color: #333 ;
-    text-align:center;
-    left: auto; 
-    right: auto; 
+    ; 
  
-}
+} */
 .container
 {
     width: 33%;
-    flex-grow: 4;
-    justify-content: space-between;
-    align-items: flex-start;
+    margin-top: 15mm;
+    
+    /* flex-grow: 4; */
+    /* justify-content: space-between; */
+    /* align-items: flex-start; */
+}
+#goback
+{
+  text-decoration: none;
+  color: black;
+  padding: 6px;
+}
+#goforward
+{
+  text-decoration: none;
+  color: black;
+  padding: 6px;
+}
+#directory
+{
+  text-decoration: none;
+  color: black;
+  border:2px solid rgb(20, 20, 20);
+   padding: 6px;
+   width: 300px;
+       
+    border-color: #333 ;
+    text-align:center;
+    /* left: auto; 
+    right: auto */
+}
+#go
+{
+  text-decoration: none ;
+  color: black;
+  border:2px solid rgb(12, 12, 12);
+  border-color: #333 ;
+  padding: 10px;
+  
 }
