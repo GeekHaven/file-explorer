@@ -176,3 +176,32 @@ h2 {
   padding: 1px;
   border:solid 1px;
 }
+.change
+{
+  font-size: 1.3rem;
+
+  /* margin: 0mm auto; */
+  display: flex;
+  
+}
+.change input[type=text]
+{
+  
+    padding: 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 18px;
+    
+    border-color: #333 ;
+    text-align:center;
+    left: auto; 
+    right: auto; 
+ 
+}
+.container
+{
+    width: 33%;
+    flex-grow: 4;
+    justify-content: space-between;
+    align-items: flex-start;
+}
