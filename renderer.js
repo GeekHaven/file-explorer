@@ -87,3 +87,36 @@ function showDir(){
   var dirPath = document.getElementById('directory').value;
     getFilesandFolder(dirPath);
 }
+
+var dirList = new Set();
+function dirListing(dir){
+  var files = fs.readdirSync(dir);
+  for(var x in files){
+    try{
+    var next = path.join(dir,files[x]);
+    if (fs.lstatSync(next).isDirectory()==true){
+      dirList.add(next)
+      dirListing(next);
+    }
+  }
+  catch(err){
+    console.log(err);
+    continue;
+  }
+  }
+}
+
+
+function searchResult(){
+  var fileName = document.getElementById('fileName').value;
+  node.innerHTML='';
+  dirList.forEach((file) => {
+    if(file.replace(/^.*[\\\/]/, '')==fileName){
+      var toAddnode = document.createElement("LI");
+      toAddnode.onclick=function() {getFilesandFolder(file)};
+      var textnode = document.createTextNode(file);
+      toAddnode.appendChild(textnode);
+      node.appendChild(toAddnode);
+    }
+  });
+}
