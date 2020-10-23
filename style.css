@@ -181,7 +181,7 @@ h2 {
   font-size: 1.3rem;
   /* margin: 0mm auto; */
   display: flex;
-  
+  flex-wrap: wrap;
 }
 /* .change input[type=text]
 {
@@ -191,9 +191,9 @@ h2 {
 } */
 .container
 {
-    width: 33%;
-    margin-top: 15mm;
-    
+
+    margin-top: 15mm; 
+    margin-right: 300px;
     /* flex-grow: 4; */
     /* justify-content: space-between; */
     /* align-items: flex-start; */
@@ -212,14 +212,14 @@ h2 {
 }
 #directory
 {
+  height: 100%;
   text-decoration: none;
   color: black;
   border:2px solid rgb(20, 20, 20);
    padding: 6px;
    width: 300px;
-       
-    border-color: #333 ;
-    text-align:center;
+  border-color: #333 ;
+  text-align:center;
     /* left: auto; 
     right: auto */
 }
@@ -230,5 +230,20 @@ h2 {
   border:2px solid rgb(12, 12, 12);
   border-color: #333 ;
   padding: 10px;
+  align-content: center;
+  left: -100px;
   
+}
+#fileName{
+  height:100%;
+  text-decoration: none;
+  color: black;
+  border:2px solid rgb(20, 20, 20);
+   padding: 6px;
+   width: 300px;
+  border-color: #333 ;
+  text-align:center;
+    /* left: auto; 
+    right: auto */
+
 }
