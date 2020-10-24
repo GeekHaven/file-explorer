@@ -107,6 +107,7 @@ getFilesandFolder(printdirectory());
 
 function showDir(){
   var dirPath = document.getElementById('directory').value;
+  cond=1;
     getFilesandFolder(dirPath);
 }
 
