@@ -42,39 +42,61 @@ const printdirectory = () => {
   return dir_home;
 };
 
+class mapElement{
+  constructor(){
+    this.path;
+    this.next;
+    this.prev;
+  }
+}
+var curr = new mapElement();
+curr.path = os.homedir();
+var cond =0;
+var ptr = new mapElement();
+
 const getFilesandFolder = (folderPath) => {
   try{
-  var homenames = fs.readdirSync(folderPath);
-  node.innerHTML='';
-  homenames.forEach((file) => {
-    try{
-      var filePath = path.join(folderPath, file);
-    var stat = fs.statSync(filePath);
-    if (stat.isFile()) {
-      console.log("The is a File" + file);
-      var toAddnode = document.createElement("LI");
-      toAddnode.onclick = function() {openFile(filePath)};
-      var textnode = document.createTextNode(file);
-      toAddnode.appendChild(textnode);
-      node.appendChild(toAddnode);
+    if(cond===0)
+    {
+      var newDir = new mapElement();
+      newDir.path = folderPath;
+      newDir.prev = curr;
+      curr.next = newDir;
+      curr = newDir;
+      ptr = curr;
     }
-    else if (stat.isDirectory()) {
-      console.log("The is a Directory" + file);
-      var toAddnode = document.createElement("LI");
-      toAddnode.onclick=function() {getFilesandFolder(filePath)};
-      var textnode = document.createTextNode(file);
-      toAddnode.appendChild(textnode);
-      node.appendChild(toAddnode);
-    }
-    }
-    catch(err){
-      console.log(err);
-    }
-  });
-}
-catch(err){
-  alert(err);
-}
+    var homenames = fs.readdirSync(folderPath);
+    node.innerHTML='';
+    homenames.forEach((file) => {
+      try{
+        var filePath = path.join(folderPath, file);
+      var stat = fs.statSync(filePath);
+      if (stat.isFile()) {
+        console.log("The is a File" + file);
+        var toAddnode = document.createElement("LI");
+        toAddnode.onclick = function() {openFile(filePath)};
+        var textnode = document.createTextNode(file);
+        toAddnode.appendChild(textnode);
+        node.appendChild(toAddnode);
+      }
+      else if (stat.isDirectory()) {
+        console.log("The is a Directory" + file);
+        var toAddnode = document.createElement("LI");
+        toAddnode.onclick=function() {getFilesandFolder(filePath)};
+        var textnode = document.createTextNode(file);
+        toAddnode.appendChild(textnode);
+        node.appendChild(toAddnode);
+      }
+      }
+      catch(err){
+        console.log(err);
+      }
+    });
+  }
+  catch(err){
+    alert(err);
+  }
+  cond = 0;
 };
 
 function openFile(filePath){
@@ -110,8 +132,10 @@ function dirListing(dir){
 function searchResult(){
   var fileName = document.getElementById('fileName').value;
   node.innerHTML='';
+  var flag=0;
   dirList.forEach((file) => {
     if(file.replace(/^.*[\\\/]/, '')==fileName){
+      flag=1;
       var toAddnode = document.createElement("LI");
       toAddnode.onclick=function() {getFilesandFolder(file)};
       var textnode = document.createTextNode(file);
@@ -119,4 +143,44 @@ function searchResult(){
       node.appendChild(toAddnode);
     }
   });
+  if(flag===0){
+    alert('No Folder Found');
+    getFilesandFolder(curr.path);
+  }
+}
+
+
+var tmp = new mapElement();
+
+function goBack(){
+  try{
+  tmp = ptr;
+  cond=1;
+  ptr = ptr.prev;
+  curr = curr.prev;
+  console.log(ptr.path);
+  getFilesandFolder(ptr.path);
+  }
+  catch(err){
+    ptr = tmp;
+    curr =tmp;
+    console.log(tmp.path);
+  }
+
+}
+
+function goFwd(){
+  try{
+    tmp = ptr;
+    cond=1;
+    curr = curr.next;
+    ptr = ptr.next;
+    console.log(ptr.path);
+    getFilesandFolder(ptr.path);
+  }
+  catch(err){
+    ptr = tmp;
+    curr = tmp;
+    console.log(tmp.path);
+  }
 }
