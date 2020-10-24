@@ -50,13 +50,9 @@ class mapElement{
   }
 }
 var curr = new mapElement();
-
 var cond =1;
 var ptr = new mapElement();
 curr.path = os.homedir();
-curr.path = os.homedir();
-var cond =0;
-var ptr = new mapElement();
 
 const getFilesandFolder = (folderPath) => {
   try{
