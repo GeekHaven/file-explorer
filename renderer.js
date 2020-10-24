@@ -53,7 +53,7 @@ const getFilesandFolder = (folderPath) => {
     if (stat.isFile()) {
       console.log("The is a File" + file);
       var toAddnode = document.createElement("LI");
-      toAddnode.onclick = function() {openFile(folderPath)};
+      toAddnode.onclick = function() {openFile(filePath)};
       var textnode = document.createTextNode(file);
       toAddnode.appendChild(textnode);
       node.appendChild(toAddnode);
@@ -61,7 +61,7 @@ const getFilesandFolder = (folderPath) => {
     else if (stat.isDirectory()) {
       console.log("The is a Directory" + file);
       var toAddnode = document.createElement("LI");
-      toAddnode.onclick=function() {getFilesandFolder(folderPath)};
+      toAddnode.onclick=function() {getFilesandFolder(filePath)};
       var textnode = document.createTextNode(file);
       toAddnode.appendChild(textnode);
       node.appendChild(toAddnode);
@@ -85,7 +85,7 @@ getFilesandFolder(printdirectory());
 
 function showDir(){
   var dirPath = document.getElementById('directory').value;
-    getFilesandFolder(dirPath);
+    getFilesandFolder(folderPath);
 }
 
 var dirList = new Set();
