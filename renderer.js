@@ -50,9 +50,10 @@ class mapElement{
   }
 }
 var curr = new mapElement();
-curr.path = os.homedir();
-var cond =0;
+var cond =1;
 var ptr = new mapElement();
+curr.path = os.homedir();
+ptr=curr;
 
 const getFilesandFolder = (folderPath) => {
   try{
@@ -72,7 +73,7 @@ const getFilesandFolder = (folderPath) => {
         var filePath = path.join(folderPath, file);
       var stat = fs.statSync(filePath);
       if (stat.isFile()) {
-        console.log("The is a File" + file);
+        console.log("The is a File " + file);
         var toAddnode = document.createElement("LI");
         toAddnode.onclick = function() {openFile(filePath)};
         var textnode = document.createTextNode(file);
@@ -80,7 +81,7 @@ const getFilesandFolder = (folderPath) => {
         node.appendChild(toAddnode);
       }
       else if (stat.isDirectory()) {
-        console.log("The is a Directory" + file);
+        console.log("The is a Directory " + file);
         var toAddnode = document.createElement("LI");
         toAddnode.onclick=function() {getFilesandFolder(filePath)};
         var textnode = document.createTextNode(file);
@@ -107,6 +108,7 @@ getFilesandFolder(printdirectory());
 
 function showDir(){
   var dirPath = document.getElementById('directory').value;
+  cond=0;
     getFilesandFolder(dirPath);
 }
 
@@ -130,10 +132,14 @@ function dirListing(dir){
 
 
 function searchResult(){
+  cond=1;
   var fileName = document.getElementById('fileName').value;
   node.innerHTML='';
   var flag=0;
   dirList.forEach((file) => {
+    if(fileName != curr.path.replace(/^.*[\\\/]/, '')){
+      cond =0;
+    }
     if(file.replace(/^.*[\\\/]/, '')==fileName){
       flag=1;
       var toAddnode = document.createElement("LI");
@@ -151,14 +157,15 @@ function searchResult(){
 
 
 var tmp = new mapElement();
+tmp = curr;
 
 function goBack(){
   try{
   tmp = ptr;
-  cond=1;
   ptr = ptr.prev;
   curr = curr.prev;
   console.log(ptr.path);
+  cond=1;
   getFilesandFolder(ptr.path);
   }
   catch(err){
@@ -172,10 +179,10 @@ function goBack(){
 function goFwd(){
   try{
     tmp = ptr;
-    cond=1;
     curr = curr.next;
     ptr = ptr.next;
     console.log(ptr.path);
+    cond=1;
     getFilesandFolder(ptr.path);
   }
   catch(err){
