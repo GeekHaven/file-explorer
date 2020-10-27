@@ -223,7 +223,19 @@ h2 {
     /* left: auto; 
     right: auto */
 }
-#go
+#button
+{
+  text-decoration: none;
+  color: black;
+  border:2px solid rgb(20, 20, 20);
+  padding: 6px;
+  width: 60px;
+      
+   border-color: #333 ;
+   text-align:center;
+   display: inline-block;
+}
+/* #go
 {
   text-decoration: none ;
   color: black;
@@ -231,4 +243,28 @@ h2 {
   border-color: #333 ;
   padding: 10px;
   
+} */
+#directory1
+{
+  text-decoration: none;
+  color: black;
+  border:2px solid rgb(20, 20, 20);
+   padding: 6px;
+   width: 150px;
+       
+    border-color: #333 ;
+    text-align:center;
+    /* left: auto; 
+    right: auto */
+}
+#button1
+{
+  text-decoration: none;
+  color: black;
+  border:2px solid rgb(20, 20, 20);
+  padding: 6px;
+  width: 45px;
+      
+   border-color: #333 ;
+   text-align:center;
 }
