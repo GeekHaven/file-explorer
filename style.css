@@ -178,10 +178,14 @@ h2 {
 }
 .change
 {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   /* margin: 0mm auto; */
   display: flex;
   flex-wrap: wrap;
+  background-color: rgb(162, 162, 165);
+  
+  padding-bottom: 0.5cm;
+  
 }
 /* .change input[type=text]
 {
@@ -192,8 +196,9 @@ h2 {
 .container
 {
 
-    margin-top: 15mm; 
-    margin-right: 300px;
+    margin-top: 12mm; 
+    
+    /* margin-right: 300px; */
     /* flex-grow: 4; */
     /* justify-content: space-between; */
     /* align-items: flex-start; */
@@ -201,49 +206,56 @@ h2 {
 #goback
 {
   text-decoration: none;
-  color: black;
+  color: #ebebeb;
   padding: 6px;
-}
+  
+} 
+
 #goforward
 {
-  text-decoration: none;
-  color: black;
-  padding: 6px;
+   text-decoration: none;
+  
+  color: #e8f1f7;
+  padding: 10px;
+  
+  
+  
 }
 #directory
 {
   height: 100%;
   text-decoration: none;
-  color: black;
-  border:2px solid rgb(20, 20, 20);
-   padding: 6px;
+  color: rgb(10, 10, 10);
+  /* border:1px solid rgb(20, 20, 20); */
+   /* padding: 6px; */
    width: 300px;
   border-color: #333 ;
   text-align:center;
+  border-radius: 1.2cm;
     /* left: auto; 
     right: auto */
+  margin-left: 550px;
 }
 #go
 {
   text-decoration: none ;
-  color: black;
-  border:2px solid rgb(12, 12, 12);
+  color: rgb(255, 254, 254);
+  border:1px solid rgb(56, 55, 55);
   border-color: #333 ;
+  background-color: #1a2933;
   padding: 10px;
   align-content: center;
   left: -100px;
+   border-radius: 1.2cm;
   
 }
 #fileName{
   height:100%;
   text-decoration: none;
-  color: black;
-  border:2px solid rgb(20, 20, 20);
-   padding: 6px;
-   width: 300px;
-  border-color: #333 ;
+  color: rgb(7, 7, 7);
+   width: 200px;
   text-align:center;
-    /* left: auto; 
-    right: auto */
-
+    
+    margin-left: 420px;
+    border-radius: 1.2cm;
 }
